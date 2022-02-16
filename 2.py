@@ -2,7 +2,16 @@ from functools import wraps
 
 
 def cls_method_decorator(param: int):
-    pass
+
+    def real_decorator(func):
+
+        def decorated(self, *args, **kwargs):
+            increment = self.increment_var(param, *args, **kwargs)
+            return increment
+
+        return decorated
+
+    return real_decorator
 
 
 class SomeClass:

@@ -2,6 +2,7 @@ import asyncio
 import random
 from typing import List
 
+
 # Разделяемое между запросами состояние сервера
 class SharedState:
     items: List[int]
@@ -14,6 +15,7 @@ class SharedState:
     async def modify(self, value: int):
         await asyncio.sleep(random.randint(1, 2))
         self.items.append(value)
+
 
 # Имитация сервера, обрабатывающего запросы
 # В нашем случае "запросы" модифицируют состояние сервера
