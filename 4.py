@@ -2,7 +2,8 @@ import json
 import sys
 
 
-def some_func(dicts: dict, param: str, list_dict=[]):
+def some_func(dicts: dict, param: str, list_dict: list = []):
+    """Парсим json по заданным полям"""
     if isinstance(dicts, dict):
         for key, value in dicts.items():
             if not isinstance(value, dict):

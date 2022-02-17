@@ -3,15 +3,15 @@ from functools import wraps
 
 def cls_method_decorator(param: int):
 
-    def real_decorator(func):
-
-        def decorated(self, *args, **kwargs):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(self, *args, **kwargs):
             increment = self.increment_var(param, *args, **kwargs)
             return increment
 
-        return decorated
+        return wrapper
 
-    return real_decorator
+    return decorator
 
 
 class SomeClass:
